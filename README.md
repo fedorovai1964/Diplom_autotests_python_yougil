@@ -1,0 +1,1 @@
+# Diplom_autotests_python_yougil
