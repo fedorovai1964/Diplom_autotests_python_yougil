@@ -3,6 +3,7 @@ import pytest
 
 pytestmark = [pytest.mark.ui]
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Auth UI")
 @allure.title("Успешная авторизация в YouGile по email и паролю")
 def test_auth_(auth):
@@ -11,7 +12,7 @@ def test_auth_(auth):
     with allure.step("Проверить, что пользователь авторизован"):
         assert auth.is_logged_in()
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Auth UI")
 @allure.title("Email в профиле совпадает с введённым при авторизации")
 def test_auth_email(browser, config, auth, main_page):

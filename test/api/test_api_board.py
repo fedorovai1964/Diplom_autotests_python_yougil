@@ -3,16 +3,15 @@ import pytest
 
 pytestmark = [pytest.mark.api]
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Boards API")
 @allure.title("Получение списка досок (вызов метода GET) на сайте YouGile")
-@allure.severity(allure.severity_level.CRITICAL)
 def test_get_boards(api) -> None:
     board_list = api.get_all_boards()
 
     assert len(board_list['content']) == board_list['paging']['count']
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Boards API")
 @allure.title("Получение доски по ID (вызов метода GET) на сайте YouGile")
 def test_get_board_by_id(board, api) -> None:
@@ -22,7 +21,7 @@ def test_get_board_by_id(board, api) -> None:
                      " созданной доски совпадает с заданным"):
         assert data_board['title'] == name
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Boards API")
 @allure.title("Создание доски  (вызов метода POST) на сайте YouGile")
 def test_create_board(api) -> None:
@@ -37,7 +36,7 @@ def test_create_board(api) -> None:
     with allure.step("Удалить созданную доску"):
         api.delete_board(id_board)
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Boards API")
 @allure.title("Изменение доски (вызов метода PUT) на сайте YouGile")
 def test_update_board(board, api) -> None:
@@ -49,7 +48,7 @@ def test_update_board(board, api) -> None:
     with allure.step("Проверить, что заголовок изменился"):
         assert data_board['title'] == new_name
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Boards API")
 @allure.title("Удаление доски  (вызов метода PUT) на сайте YouGile")
 def test_delete_board(board, api) -> None:

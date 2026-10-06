@@ -3,6 +3,8 @@ import pytest
 
 pytestmark = [pytest.mark.ui]
 
+
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Navigation UI")
 @allure.title("Успешный переход на страницу My Tasks")
 def test_pages_available_tasks(browser, config, auth, main_page) -> None:
@@ -15,6 +17,7 @@ def test_pages_available_tasks(browser, config, auth, main_page) -> None:
         assert current_url.endswith("my-tasks")
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Navigation UI")
 @allure.title("Успешный переход на страницу My Company")
 def test_pages_available_projects(browser, auth, main_page) -> None:
@@ -27,6 +30,7 @@ def test_pages_available_projects(browser, auth, main_page) -> None:
         assert current_url.endswith("projects")
 
 
+@allure.severity(allure.severity_level.CRITICAL)
 @allure.story("Navigation UI")
 @allure.title("Успешный переход на страницу профиля пользователя")
 def test_pages_available_profile(browser, auth, main_page) -> None:

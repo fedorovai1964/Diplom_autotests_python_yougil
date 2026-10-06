@@ -26,28 +26,28 @@ class AuthPage():
         self.__driver.get(self.__url)
         return self
 
-    @allure.step("Авторизоваться как {email}")
     def login_as(self, email: str, password: str) -> "AuthPage":
-        self.wait.until(
-            EC.visibility_of_element_located((
-                By.CSS_SELECTOR, self.locators["email"]),))
-        email_field = self.__driver.find_element(
-            By.CSS_SELECTOR, self.locators["email"])
-        email_field.clear()
-        email_field.send_keys(email)
+        with allure.step("Авторизоваться как {email}"):
+            self.wait.until(
+                EC.visibility_of_element_located((
+                    By.CSS_SELECTOR, self.locators["email"]),))
+            email_field = self.__driver.find_element(
+                By.CSS_SELECTOR, self.locators["email"])
+            email_field.clear()
+            email_field.send_keys(email)
 
-        password_field = self.__driver.find_element(
-            By.CSS_SELECTOR, self.locators["password"])
-        password_field.clear()
-        password_field.send_keys(password)
+            password_field = self.__driver.find_element(
+                By.CSS_SELECTOR, self.locators["password"])
+            password_field.clear()
+            password_field.send_keys(password)
 
-        self.__driver.find_element(
-            By.CSS_SELECTOR, self.locators['sign_in']).click()
+            self.__driver.find_element(
+                By.CSS_SELECTOR, self.locators['sign_in']).click()
 
-        self.wait.until(
-            EC.visibility_of_element_located((
-                By.XPATH, self.locators["main_page"])))
-        return self
+            self.wait.until(
+                EC.visibility_of_element_located((
+                    By.XPATH, self.locators["main_page"])))
+            return self
 
 
     @allure.step("Получить заголовок компании на главной странице")
