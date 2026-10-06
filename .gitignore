@@ -548,6 +548,5 @@ $RECYCLE.BIN/
 
 # Сочетания клавиш Windows
 *.link
-# Allure
-*allure*
+
 # Конец https://www.toptal.com/developers/gitignore/api/windows,pycharm,python,visualstudiocode
