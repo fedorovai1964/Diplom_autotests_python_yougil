@@ -1,0 +1,7 @@
+requests~=2.34.2
+allure-python-commons~=2.16.0
+Faker~=40.31.0
+pytest~=9.1.1
+selenium~=4.45.0
+python-dotenv~=1.2.3
+webdriver-manager~=4.1.2
