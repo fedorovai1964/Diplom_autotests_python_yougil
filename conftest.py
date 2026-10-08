@@ -1,6 +1,7 @@
 import allure
 import pytest
 import os
+from typing import Generator
 from pathlib import Path
 from dotenv import load_dotenv
 from selenium.webdriver.ie.webdriver import WebDriver
@@ -32,7 +33,7 @@ def config() -> dict:
 
 
 @pytest.fixture()
-def browser(config):
+def browser(config: dict) -> Generator[WebDriver, None, None]:
     """Открыть и настроить браузер, закрыть после теста."""
     with allure.step("Открыть и настроить браузер"):
         browser_name = config['browser_name'].lower()
@@ -61,7 +62,7 @@ def auth(browser: WebDriver, config: dict) -> AuthPage:
 
 
 @pytest.fixture
-def board(config: dict) :
+def board(config: dict) -> Generator[tuple[str, str], None, None]:
     """Создать доску до теста и удалить её после."""
     api = BoardApi(config)
 

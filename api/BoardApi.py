@@ -61,7 +61,7 @@ class BoardApi:
 
     @allure.story("Boards API")
     @allure.step("Изменить название доски по id")
-    def update_board(self, id_board: str, name: str):
+    def update_board(self, id_board: str, name: str) -> dict:
         """PUT /boards/{id} — изменить название доски."""
         url = self.__url + "/boards/" + id_board
         payload = {
@@ -79,7 +79,7 @@ class BoardApi:
 
     @allure.story("Boards API")
     @allure.step("Удалить доску по ID: {id_board}")
-    def delete_board(self, id_board: str):
+    def delete_board(self, id_board: str) -> dict:
         """PUT /boards/{id} с deleted=true — удалить доску."""
         url = self.__url + "/boards/" + id_board
 
